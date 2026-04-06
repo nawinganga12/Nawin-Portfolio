@@ -1,18 +1,23 @@
+@import "tailwindcss";
+
 /* Color Palette and Variables */
 :root {
-    --bg-main: #0B0F19; /* Deep slate dark */
+    --bg-main: #0B0F19;
+    /* Deep slate dark */
     --bg-secondary: #1A2235;
     --text-primary: #F3F4F6;
     --text-secondary: #9CA3AF;
-    --accent-color: #3B82F6; /* Vibrant blue */
+    --accent-color: #3B82F6;
+    /* Vibrant blue */
     --accent-hover: #60A5FA;
-    --accent-gradient: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%); /* Blue to purple */
+    --accent-gradient: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+    /* Blue to purple */
     --card-bg: rgba(26, 34, 53, 0.6);
     --card-border: rgba(255, 255, 255, 0.08);
-    
+
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Inter', sans-serif;
-    
+
     --transition: all 0.3s ease;
 }
 
@@ -59,7 +64,8 @@ body {
     left: -10%;
     width: 500px;
     height: 500px;
-    background: rgba(59, 130, 246, 0.3); /* Blue */
+    background: rgba(59, 130, 246, 0.3);
+    /* Blue */
 }
 
 .glow-2 {
@@ -67,13 +73,19 @@ body {
     right: -10%;
     width: 400px;
     height: 400px;
-    background: rgba(139, 92, 246, 0.3); /* Purple */
+    background: rgba(139, 92, 246, 0.3);
+    /* Purple */
     animation-delay: -5s;
 }
 
 @keyframes float {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(100px, 100px) scale(1.1); }
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(100px, 100px) scale(1.1);
+    }
 }
 
 
@@ -284,6 +296,57 @@ section {
     margin-bottom: 3rem;
 }
 
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    width: 100%;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    animation: profileFloat 6s ease-in-out infinite;
+}
+
+.profile-img {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(59, 130, 246, 0.2);
+    border: 4px solid var(--card-border);
+    transition: var(--transition);
+}
+
+.profile-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 60px rgba(59, 130, 246, 0.4);
+    border-color: var(--accent-color);
+}
+
+@keyframes profileFloat {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
 /* Skills section */
 .skills-container {
     display: flex;
@@ -371,28 +434,36 @@ section {
     gap: 2rem;
 }
 
-.edu-card, .award-card {
+.edu-card,
+.award-card {
     padding: 2.5rem;
 }
 
-.edu-card h3, .award-card h3 {
+.edu-card h3,
+.award-card h3 {
     font-family: var(--font-heading);
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
     color: var(--accent-color);
 }
 
-.edu-item, .award-item, .lang-item {
+.edu-item,
+.award-item,
+.lang-item {
     margin-bottom: 1.5rem;
 }
 
-.edu-item h4, .award-item h4, .lang-item h4 {
+.edu-item h4,
+.award-item h4,
+.lang-item h4 {
     font-size: 1.1rem;
     color: var(--text-primary);
     margin-bottom: 0.4rem;
 }
 
-.edu-item p, .award-item p, .lang-item p {
+.edu-item p,
+.award-item p,
+.lang-item p {
     color: var(--text-secondary);
     font-size: 0.95rem;
 }
@@ -508,27 +579,46 @@ footer {
     .mobile-menu-btn {
         display: block;
     }
-    
+
     .mobile-menu-btn.active .bar:nth-child(2) {
         opacity: 0;
     }
-    
+
     .mobile-menu-btn.active .bar:nth-child(1) {
         transform: translateY(8px) rotate(45deg);
     }
-    
+
     .mobile-menu-btn.active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
-    
+
     .grid-2-col {
         grid-template-columns: 1fr;
     }
-    
+
     .hero {
         padding-top: 100px;
     }
-    
+
+    .hero-container {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-image-wrapper {
+        margin-bottom: 2rem;
+    }
+
+    .profile-img {
+        max-width: 280px;
+    }
+
+    .hero .description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .btn-secondary {
         margin-left: 0;
         margin-top: 1rem;

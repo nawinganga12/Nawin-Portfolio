@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalogue - Blue Star Collection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Catalogue Light Theme Overrides */
+        :root {
+            --bg-main: #F0F4F8; /* Light gray-blue */
+            --bg-secondary: #FFFFFF;
+            --text-primary: #1E293B; /* Dark slate */
+            --text-secondary: #64748B;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --card-border: rgba(0, 0, 0, 0.05);
+        }
+        body { background-color: var(--bg-main); color: var(--text-primary); }
+        .background-effects { display: none; }
+        
+        /* Adjust Navbar for light mode */
+        .navbar { background: rgba(255, 255, 255, 0.95); border-bottom: 1px solid #E2E8F0; }
+        .nav-links a { color: #475569; }
+        .nav-links a:hover { color: var(--accent-color); }
+        .logo { color: #1E293B; }
+        
+        /* Override standard text styles */
+        .btn-secondary { border-color: #CBD5E1; color: #475569; }
+        .btn-secondary:hover { background: #F1F5F9; border-color: #94A3B8; color: #1E293B; }
+        
+        /* Mobile menu overrides */
+        @media screen and (max-width: 768px) {
+            .nav-links { background: #ffffff; }
+            .mobile-menu-btn .bar { background-color: #1E293B; }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-blue-200">
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="logo">BS<span>.</span></div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#experience">Experience</a></li>
+                <li><a href="catalogue.html" class="btn-primary" style="padding: 0.6rem 1.5rem; margin-left: 0;">Catalogue</a></li>
+                <li><a href="index.html#contact" class="btn-secondary" style="margin-left: 0;">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="mobile-menu-btn" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </header>
+
+    <!-- Catalogue Header -->
+    <section class="pt-36 pb-12 px-6 max-w-7xl mx-auto" style="padding-top: 140px; padding-bottom: 50px;">
+        <div class="text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-[#0033A0] mb-4 tracking-tight" style="font-family: var(--font-heading);">Blue Star Collection</h1>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-10">Explore our premium range of commercial and residential electronics. Built for performance, designed for excellence.</p>
+        </div>
+
+        <!-- Filters Bar -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 mb-10 flex flex-col sm:flex-row items-center justify-between gap-4 sticky top-24 z-50">
+            <div class="flex items-center gap-3 w-full sm:w-auto">
+                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path></svg>
+                <span class="font-semibold text-slate-800">Filter Products:</span>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row w-full sm:w-auto gap-4">
+                <select id="category-filter" class="bg-slate-50 hover:bg-slate-100 cursor-pointer border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full outline-none p-2.5 transition">
+                    <option value="All">All Categories</option>
+                    <option value="Split ACs">Split ACs</option>
+                    <option value="Window ACs">Window ACs</option>
+                    <option value="Portable ACs">Portable ACs</option>
+                    <option value="Air Purifiers">Air Purifiers</option>
+                    <option value="Air Coolers">Air Coolers</option>
+                    <option value="Water Purifiers">Water Purifiers</option>
+                    <option value="Refrigerators">Refrigerators</option>
+                </select>
+
+                <select id="rating-filter" class="bg-slate-50 hover:bg-slate-100 cursor-pointer border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full outline-none p-2.5 transition">
+                    <option value="All">All Ratings</option>
+                    <option value="5">⭐⭐⭐⭐⭐ (5 Stars)</option>
+                    <option value="4">⭐⭐⭐⭐ (4 Stars)</option>
+                    <option value="3">⭐⭐⭐ (3 Stars)</option>
+                    <option value="2">⭐⭐ (2 Stars)</option>
+                    <option value="1">⭐ (1 Star)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 pb-20">
+            <!-- JS will inject cards here -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 text-center" style="margin: 0; max-width: none; padding: 50px 0;">
+        <div class="logo text-white text-2xl mb-4 font-bold" style="font-family: var(--font-heading);">BS<span class="text-blue-500">.</span></div>
+        <p>Built for Naveen Kumar.</p>
+        <p class="footer-sub text-slate-500 mt-2">&copy; 2026 Blue Star inspired</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="script.js"></script>
+    <script src="catalogue.js"></script>
+</body>
+</html>
